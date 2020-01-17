@@ -34,14 +34,14 @@
 
     function WebSocketTest() {
         if ("WebSocket" in window) {
-            message.innerText = "您的浏览器支持 WebSocket!";
+            message.innerHTML = "您的浏览器支持 WebSocket!";
 
             // 打开一个 web socket
             ws = new WebSocket("ws://127.0.0.1:8080/websocket/" + sid.value);
 
             ws.onopen = function () {
                 // Web Socket 已连接上，使用 send() 方法发送数据
-                message.innerText = "WebSocket 已连接上";
+                message.innerHTML += "WebSocket 已连接上";
             };
 
             ws.onmessage = function (evt) {
@@ -50,11 +50,11 @@
 
             ws.onclose = function () {
                 // 关闭 websocket
-                message.innerText = "连接已关闭...";
+                message.innerHTML += "连接已关闭...";
             };
         } else {
             // 浏览器不支持 WebSocket
-            message.innerText = "您的浏览器不支持 WebSocket!";
+            message.innerHTML = "您的浏览器不支持 WebSocket!";
         }
     }
 </script>
